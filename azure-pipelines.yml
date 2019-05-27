@@ -15,6 +15,13 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Microsoft Azure(e7cd3e13-8bed-4f92-9fa9-1feef5c19025)'
+    appType: 'webApp'
+    WebAppName: 'SampleUreveal'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
 - task: NuGetToolInstaller@0
 
 - task: NuGetCommand@2
